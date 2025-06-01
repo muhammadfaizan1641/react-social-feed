@@ -5,9 +5,8 @@ import "./card.css";
 function App() {
   const [posts, setPosts] = useState([]);
 
-  const postComponents = posts.map((post, index) => (
+  const postComponents = posts.map((post) => (
     <PostComponent
-      key={index}
       name={post.name}
       subtitle={post.subtitle}
       time={post.time}
