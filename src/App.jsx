@@ -1,46 +1,49 @@
 import { useState } from "react";
 import { PostComponent } from "./post";
-import "./card.css"
+import "./card.css";
 
 function App() {
   const [posts, setPosts] = useState([]);
 
-  const postComponents = posts.map((post, index) => <PostComponent
-    key={index}
-    name={post.name}
-    subtitle={post.subtitle}
-    time={post.time}
-    image={post.image}
-    description={post.description}
-  />)
+  const postComponents = posts.map((post, index) => (
+    <PostComponent
+      key={index}
+      name={post.name}
+      subtitle={post.subtitle}
+      time={post.time}
+      image={post.image}
+      description={post.description}
+    />
+  ));
 
   function addPost() {
-  const nameInput = document.getElementById("name");
-  const subtitleInput = document.getElementById("subtitle");
-  const timeInput = document.getElementById("time");
-  const imageInput = document.getElementById("image");
-  const descriptionInput = document.getElementById("description");
+    const nameInput = document.getElementById("name");
+    const subtitleInput = document.getElementById("subtitle");
+    const timeInput = document.getElementById("time");
+    const imageInput = document.getElementById("image");
+    const descriptionInput = document.getElementById("description");
 
-  setPosts([
-    ...posts,
-    {
-      name: nameInput.value,
-      subtitle: subtitleInput.value,
-      time: timeInput.value,
-      image: URL.createObjectURL(imageInput.files[0]),
-      description: descriptionInput.value,
-    },
-  ]);
+    setPosts([
+      ...posts,
+      {
+        name: nameInput.value,
+        subtitle: subtitleInput.value,
+        time: timeInput.value,
+        image: URL.createObjectURL(imageInput.files[0]),
+        description: descriptionInput.value,
+      },
+    ]);
 
-      nameInput.value = "";
-      subtitleInput.value = "";
-      timeInput.value = "";
-      imageInput.value = "";         
-      descriptionInput.value = "";
+
+    nameInput.value = "";
+    subtitleInput.value = "";
+    timeInput.value = "";
+    imageInput.value = "";
+    descriptionInput.value = "";
   }
 
   return (
-     <div className="app-container">
+    <div className="app-container">
       <div className="content-wrapper">
         <form
           className="post-form"
@@ -71,8 +74,7 @@ function App() {
         <div className="posts-wrapper">{postComponents}</div>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;

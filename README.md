@@ -10,6 +10,7 @@ This project is a basic React application that allows users to create and displa
 - Dynamically displays posts as cards upon submission.
 - Supports image uploads with instant preview using `URL.createObjectURL`.
 - Automatically clears form inputs after submitting a post.
+- Fully responsive
 
 ---
 
